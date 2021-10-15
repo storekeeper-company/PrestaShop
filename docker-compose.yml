@@ -2,7 +2,6 @@ version: '2'
 
 volumes:
   db-data:
-  vendor:
   var:
 
 services:
@@ -26,10 +25,10 @@ services:
       PS_DOMAIN: localhost:8001
       PS_FOLDER_INSTALL: install-dev
       PS_FOLDER_ADMIN: admin-dev
+      PHP_IDE_CONFIG: serverName=docker-local
     command: ["/tmp/wait-for-it.sh", "--timeout=60", "--strict", "mysql:3306", "--", "/tmp/docker_run_git.sh"]
     ports:
       - "8001:80"
     volumes:
-      - ./:/var/www/html/:delegated
-      - vendor:/var/www/html/vendor
+      - ./:/var/www/html/
       - var:/var/www/html/var

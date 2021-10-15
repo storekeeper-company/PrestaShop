@@ -1,5 +1,7 @@
 #!/bin/sh
 
+chown -R www-data:www-data . # make sure all fixed are owned by www-data
+
 if [ ! -f ./vendor/autoload.php  ]; then
 	echo "\n* Vendor autoloader not found, running composer ...";
 	runuser -g www-data -u www-data -- /usr/local/bin/composer install --no-interaction

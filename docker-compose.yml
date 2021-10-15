@@ -25,6 +25,7 @@ services:
       PS_DOMAIN: localhost:8001
       PS_FOLDER_INSTALL: install-dev
       PS_FOLDER_ADMIN: admin-dev
+      PS_HANDLE_DYNAMIC_DOMAIN: 1
       PHP_IDE_CONFIG: serverName=docker-local
     command: ["/tmp/wait-for-it.sh", "--timeout=60", "--strict", "mysql:3306", "--", "/tmp/docker_run_git.sh"]
     ports:

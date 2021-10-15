@@ -17,6 +17,9 @@ RUN cp /usr/local/bin/php /usr/local/bin/php-www && \
     chown www-data:www-data  /usr/local/bin/php-www && \
     chmod u+s /usr/local/bin/php-www;
 
+# add composer cache dir
+RUN mkdir /var/www/.composer && chown www-data:www-data /var/www/.composer
+
 COPY /wait-for-it.sh /tmp/
 COPY /docker_run_git.sh /tmp/
 
